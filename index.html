@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lava Jato Arena — Arena das Dunas</title>
-<meta name="description" content="Lavagem, proteção e cuidado automotivo na Arena das Dunas. Acesso pelos portões E1 Sul e E1 Norte." />
+<title>Lava Jato Arena</title>
+<meta name="description" content="Lavagem, proteção e cuidado automotivo na Arena. Acesso pelos portões E1 Sul e E1 Norte." />
 <link rel="stylesheet" href="styles.css" />
 <style>
 /* ——— paleta da marca (derivada da logo) ——————————————————————— */
@@ -145,6 +145,7 @@ font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;col
 .shot .dot-arc{position:absolute;right:-18px;top:-18px;width:110px;height:110px;border:2px solid var(--green);border-radius:50% 0 50% 50%;opacity:.35}
 /* ——— serviços ——————————————————————————————————————————————— */
 .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,26px)}
+.cols-3{grid-template-columns:repeat(3,1fr)}
 .svc{position:relative;background:#fff;border:1px solid var(--color-divider);display:flex;flex-direction:column;overflow:hidden;
 transition:transform .25s,box-shadow .25s,border-color .25s}
 .svc:hover{transform:translateY(-6px);box-shadow:0 30px 50px -34px var(--navy);border-color:color-mix(in srgb,var(--green) 45%,transparent)}
@@ -269,6 +270,7 @@ box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
  .svc-grid{grid-template-columns:1fr}.mini,.gates{grid-template-columns:1fr}
  .extras{grid-template-columns:1fr}.extras>div:nth-child(even){border-left:0}
  .ba{aspect-ratio:4/3}
+ .spec{table-layout:auto}
  .spec .p{display:none}
  .spec[data-cat=hatch] .p-hatch,.spec[data-cat=sedan] .p-sedan,.spec[data-cat=suv] .p-suv,.spec[data-cat=pickup] .p-pickup{display:table-cell}
  .shot .tagline{display:none}
@@ -277,7 +279,7 @@ box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
 </head>
 <body>
 <nav class="nav" id="nav">
-  <a class="nav-brand" href="#top"><img src="assets/logo-lava-jato-arena.png" alt="Lava Jato Arena" /><span class="brand-tag">Arena das Dunas</span></a>
+  <a class="nav-brand" href="#top"><img src="assets/logo-lava-jato-arena.png" alt="Lava Jato Arena" /><span class="brand-tag">Arena</span></a>
   <span class="links">
     <a href="#sobre">Sobre</a>
     <a href="#servicos">Serviços</a>
@@ -295,12 +297,13 @@ box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
   <div class="wrap on-dark" style="padding-block:clamp(24px,4vw,56px) 0">
     <div class="hero-grid">
       <div>
-        <span class="kicker">Estética automotiva · Arena das Dunas</span>
+        <span class="kicker">Estética automotiva · Arena</span>
         <h1><span class="l">Seu carro merece</span><span class="l">cuidado de <em>Arena.</em></span></h1>
         <p class="sub">Lavagem, proteção e cuidado automotivo para deixar seu carro limpo, protegido e com aquele brilho que faz diferença.</p>
         <div class="actions">
           <a class="cta cta-1" data-wa href="#"><i data-lucide="calendar-check"></i>Agendar lavagem</a>
           <a class="cta cta-2" href="#precos"><i data-lucide="list"></i>Ver serviços e preços</a>
+          <a class="cta cta-2" href="https://www.google.com/maps/dir/?api=1&destination=Estacionamento+E1+Sul+-+Arena+das+Dunas+Natal+RN" target="_blank" rel="noopener"><i data-lucide="map-pin"></i>Como chegar</a>
           <span class="micro">Atendimento rápido</span>
         </div>
         <div class="marks">
@@ -330,7 +333,7 @@ box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
         <span class="kicker">01 — Sobre</span>
         <h2 class="big">Todo carro merece mais do que uma <em style="font-style:normal;color:var(--green)">lavagem qualquer.</em></h2>
         <p>No Lava Jato Arena, cada serviço é pensado pra cuidar do seu veículo de verdade — da lavagem do dia a dia até a proteção que preserva a pintura por mais tempo.</p>
-        <p>Localizado na Arena das Dunas, com acesso fácil pelos portões E1 Sul e E1 Norte, é o lugar certo pra quem quer sair com o carro limpo, protegido e brilhando.</p>
+        <p>Localizado na Arena, com acesso fácil pelos portões E1 Sul e E1 Norte, é o lugar certo pra quem quer sair com o carro limpo, protegido e brilhando.</p>
         <div class="mini">
           <div class="card-x"><span class="ico"><i data-lucide="users"></i></span><h3>Equipe que cuida</h3><p>Serviço feito com etapas definidas, do começo ao acabamento.</p></div>
           <div class="card-x"><span class="ico"><i data-lucide="flask-conical"></i></span><h3>Produto certo</h3><p>Cada etapa com o produto adequado para pintura, vidro e plástico.</p></div>
@@ -428,11 +431,11 @@ box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
       <span class="kicker">04 — Por que aqui</span>
       <h2 class="title">Cuidado organizado por <em>nível de necessidade</em></h2>
     </div>
-    <div class="svc-grid rv" style="grid-template-columns:repeat(3,1fr)">
+    <div class="svc-grid cols-3 rv">
       <div class="card-x"><span class="ico"><i data-lucide="tags"></i></span><h3>Preço por categoria</h3><p>Você sabe exatamente o que vai pagar pro seu Hatch, Sedan, SUV ou Caminhonete — sem sustos na hora de fechar.</p></div>
       <div class="card-x"><span class="ico"><i data-lucide="gauge"></i></span><h3>Do rápido ao completo</h3><p>Resolve tanto o dia corrido quanto a vontade de dar um cuidado extra no carro, no mesmo lugar.</p></div>
       <div class="card-x"><span class="ico"><i data-lucide="shield"></i></span><h3>Proteção que dura</h3><p>Você sai daqui com o carro protegido, não só limpo por um dia.</p></div>
-      <div class="card-x"><span class="ico"><i data-lucide="route"></i></span><h3>Acesso fácil</h3><p>Direto na Arena das Dunas, pelos portões E1 Sul e E1 Norte — sem desvio de rota.</p></div>
+      <div class="card-x"><span class="ico"><i data-lucide="route"></i></span><h3>Acesso fácil</h3><p>Direto na Arena, pelos portões E1 Sul e E1 Norte — sem desvio de rota.</p></div>
       <div class="card-x"><span class="ico"><i data-lucide="mouse-pointer-click"></i></span><h3>Escolha visual e rápida</h3><p>Veja o preço do seu carro sem precisar ler tabela nenhuma: selecione a categoria e pronto.</p></div>
       <div class="card-x"><span class="ico"><i data-lucide="wrench"></i></span><h3>Serviços especiais</h3><p>Motor, vidros, bancada de couro e faróis, resolvidos à parte quando o carro pede mais.</p></div>
     </div>
@@ -522,7 +525,7 @@ box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
     <div class="rv">
       <details open><summary>Quanto tempo leva cada serviço?</summary><p>Varia de acordo com o tipo de lavagem escolhido — os serviços express são pensados pra ser mais rápidos.</p></details>
       <details><summary>Serve pra qualquer tipo de carro?</summary><p>Sim. Os preços são organizados por categoria: Hatch, Sedan, SUV e Caminhonete.</p></details>
-      <details><summary>Como funciona o acesso até o Lava Jato Arena?</summary><p>O acesso é pelos portões E1 Sul e E1 Norte, na Arena das Dunas.</p></details>
+      <details><summary>Como funciona o acesso até o Lava Jato Arena?</summary><p>O acesso é pelos portões E1 Sul e E1 Norte, na Arena.</p></details>
       <details><summary>Preciso agendar ou posso chegar direto?</summary><p>[CONFIRMAR COM O CLIENTE — informação não fornecida no briefing.]</p></details>
       <details><summary>Quais formas de pagamento são aceitas?</summary><p>[INSERIR FORMAS DE PAGAMENTO — não informado.]</p></details>
       <details><summary>Qual serviço escolher se eu nunca lavei o carro aqui antes?</summary><p>Se é sua primeira vez, a Lavagem Técnica cobre um cuidado mais completo — dá pra começar por ela e ajustar nas próximas visitas.</p></details>
@@ -544,13 +547,13 @@ box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
           <div class="gate"><b>E1 Norte</b><span>Portão de acesso</span></div>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:var(--space-4)">
-          <a class="cta cta-1" href="https://www.google.com/maps/dir/?api=1&destination=Arena+das+Dunas+Natal+RN" target="_blank" rel="noopener"><i data-lucide="navigation"></i>Traçar rota</a>
+          <a class="cta cta-1" href="https://www.google.com/maps/dir/?api=1&destination=Estacionamento+E1+Sul+-+Arena+das+Dunas+Natal+RN" target="_blank" rel="noopener"><i data-lucide="navigation"></i>Traçar rota</a>
           <a class="cta cta-2" data-wa href="#"><i data-lucide="message-circle"></i>Falar no WhatsApp</a>
         </div>
       </div>
       <div class="map rv">
-        <iframe title="Mapa — Arena das Dunas" src="https://www.google.com/maps?q=Arena+das+Dunas,+Natal+-+RN&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <span class="pin"><i data-lucide="map-pin"></i>Lava Jato Arena · Arena das Dunas</span>
+        <iframe title="Mapa — Arena" src="https://www.google.com/maps?q=Estacionamento+E1+Sul+-+Arena+das+Dunas,+Natal+-+RN&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <span class="pin"><i data-lucide="map-pin"></i>Lava Jato Arena</span>
       </div>
     </div>
   </div>
@@ -565,7 +568,7 @@ box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
         <p class="lede">Escolha o serviço ideal para seu veículo e venha conhecer o Lava Jato Arena. Acesso fácil pelos portões E1 Sul e E1 Norte.</p>
         <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--leading)">
           <a class="cta cta-1" data-wa href="#"><i data-lucide="message-circle"></i>Agendar pelo WhatsApp</a>
-          <a class="cta cta-2" href="https://www.google.com/maps/dir/?api=1&destination=Arena+das+Dunas+Natal+RN" target="_blank" rel="noopener"><i data-lucide="map-pin"></i>Como chegar</a>
+          <a class="cta cta-2" href="https://www.google.com/maps/dir/?api=1&destination=Estacionamento+E1+Sul+-+Arena+das+Dunas+Natal+RN" target="_blank" rel="noopener"><i data-lucide="map-pin"></i>Como chegar</a>
         </div>
       </div>
       <div class="shot rv">
@@ -575,10 +578,10 @@ box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
         </div>
       </div>
     </div>
-    <p class="ps rv" style="margin-top:calc(1.6*var(--leading))">PS: seu carro passa o dia todo com você — ele merece um cuidado à altura disso. No Lava Jato Arena, na Arena das Dunas, é só escolher o serviço certo pro seu veículo e agendar.</p>
+    <p class="ps rv" style="margin-top:calc(1.6*var(--leading))">PS: seu carro passa o dia todo com você — ele merece um cuidado à altura disso. No Lava Jato Arena, é só escolher o serviço certo pro seu veículo e agendar.</p>
     <footer>
       <img src="assets/logo-lava-jato-arena.png" alt="Lava Jato Arena" />
-      <span>Arena das Dunas · Portões E1 Sul e E1 Norte</span>
+      <span>Arena · Portões E1 Sul e E1 Norte</span>
       <span>Política de Privacidade (a criar) · LGPD</span>
     </footer>
   </div>
