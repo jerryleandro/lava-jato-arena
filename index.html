@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lava Jato Arena — Arena das Dunas</title>
+<meta name="description" content="Lavagem, proteção e cuidado automotivo na Arena das Dunas. Acesso pelos portões E1 Sul e E1 Norte." />
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* ——— paleta da marca (derivada da logo) ——————————————————————— */
+:root{
+--color-bg:#ffffff;--color-surface:#f3f6f9;--color-text:#12212e;
+--color-accent:#0f5da6;--color-accent-100:#eaf3fb;--color-accent-200:#cfe4f5;--color-accent-300:#a8cbe9;--color-accent-400:#6da9d8;--color-accent-500:#2f83c4;--color-accent-600:#0d5395;--color-accent-700:#0a4278;--color-accent-800:#082f56;--color-accent-900:#06213c;
+--color-accent-2:#1f9c34;--color-accent-2-100:#eaf7ec;--color-accent-2-200:#cdeed4;--color-accent-2-300:#a3ddb0;--color-accent-2-400:#6cc47f;--color-accent-2-500:#35a94c;--color-accent-2-600:#1f8b34;--color-accent-2-700:#16692a;--color-accent-2-800:#0f4a1e;--color-accent-2-900:#0a3315;
+--color-divider:color-mix(in srgb,#082f56 18%,transparent);
+--navy:#06213c;--navy-2:#0b3055;--green:#1f9c34;--green-l:#35a94c;--cyan:#a8cbe9;
+--leading:24px;--half:12px;--edge:clamp(20px,5vw,72px);--measure:60ch;--nav-h:76px}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;text-wrap:pretty;overflow-x:hidden;background:var(--color-bg)}
+a{color:var(--color-accent-700)}a:hover{color:var(--color-accent-800)}
+img{max-width:100%}.hero-shot img,.shot img,.svc img,.ba .lay img{object-fit:cover}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:var(--edge);position:relative;z-index:1}
+::selection{background:color-mix(in srgb,var(--green) 30%,transparent)}
+/* ——— header ——————————————————————————————————————————————— */
+.nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:var(--space-6);min-height:var(--nav-h);
+padding-inline:max(var(--edge),calc((100% - 1200px)/2 + var(--edge)));background:color-mix(in srgb,#fff 92%,transparent);
+backdrop-filter:blur(10px);border-bottom:1px solid var(--color-divider);transition:min-height .25s,box-shadow .25s,background .25s}
+.nav[data-stuck]{min-height:60px;box-shadow:0 8px 28px -20px var(--navy);background:color-mix(in srgb,#fff 86%,transparent)}
+.nav-brand{display:flex;align-items:center;gap:var(--space-4);text-decoration:none}
+.nav-brand img{display:block;height:46px;width:auto;mix-blend-mode:multiply;transition:height .25s}
+.nav[data-stuck] .nav-brand img{height:36px}
+.brand-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--green);white-space:nowrap;padding-left:var(--space-4);border-left:1px solid var(--color-divider)}
+.links{display:flex;gap:var(--space-6);margin-left:var(--space-6)}
+.links a{position:relative;text-decoration:none;color:var(--color-text);font-size:14px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;padding-block:6px}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--green);transition:right .25s}
+.links a:hover::after,.links a.on::after{right:0}
+.links a.on{color:var(--color-accent-700)}
+.nav .phone{display:flex;flex-direction:column;line-height:1.25;margin-left:auto;text-decoration:none;color:var(--color-text)}
+.nav .phone span:first-child{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--green)}
+.nav .phone span:last-child{font-family:var(--font-heading);font-weight:600;font-size:19px;letter-spacing:.02em}
+.nav .phone:hover span:last-child{color:var(--color-accent-700)}
+@media (max-width:1140px){.links{display:none}}
+@media (max-width:860px){.brand-tag{display:none}}
+@media (max-width:620px){.nav .phone{display:none}.nav{gap:var(--space-4)}}
+/* ——— botões ————————————————————————————————————————————————— */
+.cta{display:inline-flex;align-items:center;gap:10px;position:relative;overflow:hidden;isolation:isolate;
+font-family:var(--font-heading);font-weight:600;font-size:17px;letter-spacing:.04em;text-transform:uppercase;
+padding:13px 22px;border:1px solid transparent;border-radius:8px 8px 8px 0;cursor:pointer;text-decoration:none;line-height:1.1;
+transition:transform .2s,box-shadow .2s,background .2s,color .2s,border-color .2s}
+.cta svg{width:18px;height:18px;flex:none}
+.cta-1{background:var(--green);color:#fff;box-shadow:0 10px 24px -14px var(--green)}
+.cta-1::after{content:"";position:absolute;inset:0 auto 0 -40%;width:35%;z-index:-1;transform:skewX(-18deg);
+background:linear-gradient(90deg,transparent,color-mix(in srgb,#fff 32%,transparent),transparent);transition:left .55s}
+.cta-1:hover{background:var(--green-l);transform:translateY(-2px);box-shadow:0 16px 30px -14px var(--green)}
+.cta-1:hover::after{left:110%}
+.cta-1:active{transform:translateY(0);background:var(--color-accent-2-600)}
+.cta-2{background:transparent;color:var(--color-accent-700);border-color:color-mix(in srgb,var(--color-accent) 45%,transparent)}
+.cta-2:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.on-dark .cta-2{color:#fff;border-color:color-mix(in srgb,#fff 45%,transparent)}
+.on-dark .cta-2:hover{border-color:var(--green-l);color:var(--color-accent-2-400)}
+.cta-3{background:#fff;color:var(--color-accent-800)}
+.cta-3:hover{background:var(--color-accent-100);transform:translateY(-2px)}
+/* ——— gramática gráfica: arcos de arena, linhas de campo, marcas ——— */
+.band{position:relative;overflow:hidden}
+.band.dark{background:linear-gradient(160deg,var(--navy-2) 0%,var(--navy) 55%,#04182c 100%);color:#fff}
+.band.tint{background:linear-gradient(180deg,#fff 0%,var(--color-surface) 40%,var(--color-surface) 100%)}
+.arc{position:absolute;border:1px solid currentColor;border-radius:50%;opacity:.16;pointer-events:none;color:var(--cyan)}
+.arc.green{color:var(--green-l);opacity:.3}
+.field{position:absolute;inset:0;pointer-events:none;opacity:.5;
+background:repeating-linear-gradient(90deg,transparent 0 118px,color-mix(in srgb,var(--color-accent) 7%,transparent) 118px 119px)}
+.band.dark .field{background:repeating-linear-gradient(90deg,transparent 0 118px,color-mix(in srgb,#fff 7%,transparent) 118px 119px)}
+.bignum{position:absolute;top:-.18em;right:0;font-family:var(--font-heading);font-weight:600;font-size:clamp(120px,17vw,240px);
+line-height:.8;letter-spacing:-.02em;color:color-mix(in srgb,var(--color-accent) 7%,transparent);pointer-events:none;user-select:none}
+.band.dark .bignum{color:color-mix(in srgb,#fff 6%,transparent)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--green);margin:0 0 var(--leading)}
+.kicker::before{content:"";width:26px;height:2px;background:var(--green)}
+.band.dark .kicker{color:var(--color-accent-2-400)}
+.band.dark .kicker::before{background:var(--color-accent-2-400)}
+.wave{position:absolute;left:0;right:0;height:80px;pointer-events:none;background:inherit}
+.title{font-family:var(--font-heading);font-weight:600;font-size:clamp(30px,3.6vw,44px);line-height:1.06;letter-spacing:.01em;
+text-transform:uppercase;margin:0 0 var(--leading);max-width:26ch}
+.title em{font-style:normal;background:linear-gradient(96deg,var(--color-accent-500),var(--green-l));-webkit-background-clip:text;background-clip:text;color:transparent}
+.band.dark .title em{background:linear-gradient(96deg,var(--cyan),var(--green-l));-webkit-background-clip:text;background-clip:text}
+.lede{font-size:16.5px;line-height:1.55;max-width:var(--measure);margin:0;color:color-mix(in srgb,var(--color-text) 80%,transparent)}
+.band.dark .lede{color:color-mix(in srgb,#fff 80%,transparent)}
+.sec{padding-block:clamp(56px,7vw,104px);position:relative}
+/* revelação no scroll */
+.rv{opacity:0;transform:translateY(16px)}
+.rv.in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+/* ——— HERO ——————————————————————————————————————————————————— */
+.hero{background:linear-gradient(155deg,#0d3a63 0%,var(--navy) 52%,#04162a 100%);color:#fff;position:relative;overflow:hidden;padding-top:clamp(48px,7vw,88px)}
+.hero .arc-1{width:min(1500px,150vw);aspect-ratio:2.1/1;left:50%;translate:-50% 0;top:-16%;border-width:2px}
+.hero .arc-2{width:min(1180px,120vw);aspect-ratio:2.2/1;left:50%;translate:-50% 0;top:-4%}
+.hero .arc-3{width:min(900px,96vw);aspect-ratio:2.3/1;left:50%;translate:-50% 0;top:8%}
+.hero .arena-line{position:absolute;left:-5%;right:-5%;top:44%;height:min(52vw,560px);border-top:2px solid color-mix(in srgb,var(--green-l) 55%,transparent);
+border-radius:50% 50% 0 0/100% 100% 0 0;opacity:.55;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--leading)}
+.hero h1{font-family:var(--font-heading);font-weight:600;font-size:clamp(46px,8.2vw,104px);line-height:.94;letter-spacing:.01em;
+text-transform:uppercase;margin:0;margin-left:-.04em}
+.hero h1 .l{display:block}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--cyan) 0%,#7fd6a0 45%,var(--green-l) 100%);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:clamp(16px,1.5vw,19px);line-height:1.5;max-width:50ch;margin:calc(1.2*var(--leading)) 0 0;color:color-mix(in srgb,#fff 84%,transparent)}
+.hero .actions{display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:center;margin-top:calc(1.4*var(--leading))}
+.hero .micro{display:flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--color-accent-2-400)}
+.hero .micro::before{content:"";width:7px;height:7px;background:var(--green-l);border-radius:50%;box-shadow:0 0 0 4px color-mix(in srgb,var(--green-l) 25%,transparent)}
+.marks{display:flex;flex-wrap:wrap;gap:var(--space-6) clamp(20px,3vw,44px);margin-top:calc(1.6*var(--leading));padding-top:var(--leading);border-top:1px solid color-mix(in srgb,#fff 16%,transparent)}
+.marks div{display:flex;align-items:center;gap:10px;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;color:color-mix(in srgb,#fff 78%,transparent)}
+.marks svg{width:18px;height:18px;color:var(--color-accent-2-400);flex:none}
+/* foto do hero: máscara com curva de arena, invadindo a seção seguinte */
+.hero-shot{position:relative;margin-top:clamp(36px,5vw,72px);margin-bottom:clamp(-104px,-7vw,-56px);z-index:2}
+.hero-shot .plate{position:relative;overflow:hidden;border-radius:clamp(80px,14vw,180px) clamp(80px,14vw,180px) 6px 6px;
+box-shadow:0 40px 80px -40px #000,0 0 0 1px color-mix(in srgb,#fff 18%,transparent)}
+.hero-shot img{display:block;width:100%;aspect-ratio:21/9}
+.hero-shot .glow{position:absolute;inset:auto 0 0 0;height:45%;pointer-events:none;background:linear-gradient(0deg,color-mix(in srgb,var(--navy) 55%,transparent),transparent)}
+.hero-shot .stripe{position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--green) 0%,var(--green-l) 35%,var(--color-accent-500) 100%)}
+.hero-shot .badge{position:absolute;left:clamp(16px,3vw,36px);bottom:clamp(16px,3vw,32px);display:flex;align-items:center;gap:10px;
+padding:9px 14px;background:color-mix(in srgb,var(--navy) 78%,transparent);backdrop-filter:blur(6px);color:#fff;
+font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;border-left:3px solid var(--green-l)}
+@media (max-width:720px){.hero-shot img{aspect-ratio:4/3}}
+/* ——— cards genéricos ————————————————————————————————————————— */
+.card-x{position:relative;background:#fff;border:1px solid var(--color-divider);padding:clamp(18px,2vw,26px);
+transition:transform .25s,box-shadow .25s,border-color .25s;overflow:hidden}
+.card-x::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--green),var(--color-accent-500));transition:width .35s}
+.card-x:hover{transform:translateY(-4px);box-shadow:0 26px 40px -30px var(--navy);border-color:color-mix(in srgb,var(--color-accent) 35%,transparent)}
+.card-x:hover::before{width:100%}
+.ico{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:none;
+background:var(--color-accent-2-100);color:var(--green);border:1px solid var(--color-accent-2-200)}
+.ico svg{width:22px;height:22px}
+.band.dark .ico{background:color-mix(in srgb,var(--green) 16%,transparent);border-color:color-mix(in srgb,var(--green-l) 35%,transparent);color:var(--color-accent-2-400)}
+.card-x h3,.svc h3{font-family:var(--font-heading);font-weight:600;font-size:21px;line-height:1.1;letter-spacing:.03em;text-transform:uppercase;margin:var(--half) 0 0}
+.card-x p{font-size:14.5px;line-height:1.55;margin:8px 0 0;color:color-mix(in srgb,var(--color-text) 78%,transparent)}
+/* ——— sobre ——————————————————————————————————————————————————— */
+.about{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:center}
+.about .big{font-family:var(--font-heading);font-weight:600;font-size:clamp(28px,3.4vw,42px);line-height:1.06;text-transform:uppercase;letter-spacing:.01em;margin:0 0 var(--leading);max-width:20ch}
+.about p{font-size:15.5px;line-height:1.6;margin:0 0 var(--half);color:color-mix(in srgb,var(--color-text) 80%,transparent);max-width:52ch}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin-top:var(--leading)}
+.shot{position:relative}
+.shot .frame-img{position:relative;overflow:hidden;border-radius:clamp(60px,10vw,120px) 6px clamp(60px,10vw,120px) 6px;box-shadow:0 30px 60px -40px var(--navy)}
+.shot img{display:block;width:100%;aspect-ratio:4/5}
+.shot .tagline{position:absolute;left:-14px;bottom:24px;writing-mode:vertical-rl;transform:rotate(180deg);
+font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--green)}
+.shot .dot-arc{position:absolute;right:-18px;top:-18px;width:110px;height:110px;border:2px solid var(--green);border-radius:50% 0 50% 50%;opacity:.35}
+/* ——— serviços ——————————————————————————————————————————————— */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,26px)}
+.svc{position:relative;background:#fff;border:1px solid var(--color-divider);display:flex;flex-direction:column;overflow:hidden;
+transition:transform .25s,box-shadow .25s,border-color .25s}
+.svc:hover{transform:translateY(-6px);box-shadow:0 30px 50px -34px var(--navy);border-color:color-mix(in srgb,var(--green) 45%,transparent)}
+.svc .ph{position:relative;overflow:hidden}
+.svc img{display:block;width:100%;aspect-ratio:4/3;transition:transform .6s}
+.svc:hover img{transform:scale(1.04)}
+.svc .ph::after{content:"";position:absolute;inset:auto 0 0 0;height:60%;background:linear-gradient(0deg,color-mix(in srgb,var(--navy) 45%,transparent),transparent)}
+.svc .num{position:absolute;top:10px;left:12px;z-index:2;font-family:var(--font-heading);font-weight:600;font-size:14px;letter-spacing:.14em;color:#fff}
+.svc .ico{position:absolute;bottom:-22px;right:14px;z-index:2;background:var(--green);border-color:var(--green);color:#fff}
+.svc .body{padding:clamp(18px,2vw,24px);display:flex;flex-direction:column;gap:8px;flex:1}
+.svc p{font-size:14px;line-height:1.55;margin:0;color:color-mix(in srgb,var(--color-text) 78%,transparent)}
+.svc .price{margin-top:auto;padding-top:var(--half);border-top:1px solid var(--color-divider);display:flex;align-items:baseline;gap:8px}
+.svc .price b{font-family:var(--font-heading);font-weight:600;font-size:26px;letter-spacing:.02em;color:var(--color-accent-800);font-feature-settings:"tnum" 1}
+.svc .price span{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:700}
+/* ——— antes e depois —————————————————————————————————————————— */
+.ba-wrap{position:relative}
+.ba{position:relative;aspect-ratio:16/9;touch-action:none;overflow:hidden;box-shadow:0 40px 70px -44px #000;cursor:ew-resize}
+.ba .lay{position:absolute;inset:0}
+.ba .lay img{display:block;width:100%;height:100%}
+.ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:var(--green-l);pointer-events:none;box-shadow:0 0 18px color-mix(in srgb,var(--green-l) 60%,transparent)}
+.ba .line::after{content:"";position:absolute;left:-17px;top:50%;width:36px;height:36px;translate:0 -50%;border-radius:50%;
+background:var(--green);border:2px solid #fff;box-shadow:0 6px 18px -6px #000}
+.ba .tag{position:absolute;top:14px;padding:6px 12px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+color:#fff;pointer-events:none;backdrop-filter:blur(4px)}
+.ba .tag.l{left:14px;background:color-mix(in srgb,var(--navy) 80%,transparent)}
+.ba .tag.r{right:14px;background:color-mix(in srgb,var(--green) 85%,transparent)}
+.ba input[type=range]{position:absolute;left:2%;width:96%;bottom:10px;margin:0;accent-color:var(--green-l);opacity:.85}
+.ba-legend{display:flex;flex-wrap:wrap;gap:var(--half) var(--leading);justify-content:space-between;margin-top:var(--leading);
+font-size:14px;line-height:1.5;color:color-mix(in srgb,#fff 78%,transparent)}
+.ba-legend p{margin:0;max-width:44ch}
+/* ——— preços ——————————————————————————————————————————————— */
+.picker{display:flex;flex-wrap:wrap;gap:var(--space-4);margin-bottom:var(--leading)}
+.veh{position:relative;display:flex;align-items:center;gap:10px;padding:12px 18px;cursor:pointer;background:#fff;
+border:1px solid var(--color-divider);transition:border-color .2s,box-shadow .2s,transform .2s,background .2s;
+font-family:var(--font-heading);font-weight:600;font-size:17px;letter-spacing:.05em;text-transform:uppercase}
+.veh svg{width:20px;height:20px;color:var(--color-accent-500);transition:color .2s}
+.veh input{position:absolute;opacity:0;pointer-events:none}
+.veh:hover{border-color:var(--green);transform:translateY(-2px)}
+.veh:has(input:checked){background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 14px 26px -18px var(--green)}
+.veh:has(input:checked) svg{color:#fff}
+.veh:has(input:focus-visible){outline:2px solid var(--color-accent);outline-offset:2px}
+.plate-x{background:#fff;border:1px solid var(--color-divider);box-shadow:0 30px 60px -50px var(--navy)}
+.plate-head{display:flex;flex-wrap:wrap;align-items:center;gap:var(--half) var(--leading);justify-content:space-between;
+padding:var(--half) var(--leading);background:var(--navy);color:#fff}
+.plate-head strong{font-family:var(--font-heading);font-weight:600;font-size:16px;letter-spacing:.08em;text-transform:uppercase}
+.plate-head span{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-accent-2-400);font-weight:700}
+.spec{table-layout:fixed;width:100%;border-collapse:collapse}
+.spec th,.spec td{padding:var(--half) var(--leading) var(--half) 0;text-align:left;vertical-align:middle;border-bottom:1px solid var(--color-divider)}
+.spec th:first-child,.spec td:first-child{padding-left:var(--leading)}
+.spec th{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:color-mix(in srgb,var(--color-text) 62%,transparent)}
+.spec td.nm{font-size:15.5px}
+.spec td.p,.spec th.p{transition:color .25s,background .25s}
+.spec td.p{font-family:var(--font-heading);font-weight:600;font-size:23px;letter-spacing:.02em;white-space:nowrap;
+font-feature-settings:"tnum" 1;color:color-mix(in srgb,var(--color-text) 55%,transparent)}
+.spec[data-cat=hatch] .p-hatch,.spec[data-cat=sedan] .p-sedan,.spec[data-cat=suv] .p-suv,.spec[data-cat=pickup] .p-pickup{color:var(--color-accent-2-700)}
+.spec[data-cat=hatch] th.p-hatch,.spec[data-cat=sedan] th.p-sedan,.spec[data-cat=suv] th.p-suv,.spec[data-cat=pickup] th.p-pickup{color:var(--green)}
+.spec[data-cat=hatch] td.p-hatch,.spec[data-cat=sedan] td.p-sedan,.spec[data-cat=suv] td.p-suv,.spec[data-cat=pickup] td.p-pickup{background:var(--color-accent-2-100)}
+.spec tbody tr:hover{background:color-mix(in srgb,var(--color-accent) 5%,transparent)}
+.extras{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.extras>div{padding:var(--half) var(--leading);border-bottom:1px solid var(--color-divider);display:flex;justify-content:space-between;gap:var(--leading);align-items:baseline}
+.extras>div:nth-child(even){border-left:1px solid var(--color-divider)}
+.extras .name{font-size:14.5px;line-height:1.45}
+.extras .val{font-family:var(--font-heading);font-weight:600;font-size:20px;white-space:nowrap;font-feature-settings:"tnum" 1;color:var(--color-accent-800)}
+.extras-head,.plate-note{padding:var(--half) var(--leading);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--green)}
+.plate-note{text-transform:none;letter-spacing:0;font-size:13px;font-weight:400;color:color-mix(in srgb,var(--color-text) 68%,transparent);border-top:1px solid var(--color-divider)}
+/* ——— listas de notas (dores / objeções) ————————————————————— */
+.notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,5vw,64px)}
+.note{display:grid;grid-template-columns:max-content 1fr;gap:14px;padding:var(--leading) 0;border-bottom:1px solid var(--color-divider);align-items:start}
+.note .n{font-family:var(--font-heading);font-weight:600;font-size:18px;letter-spacing:.06em;color:var(--green);line-height:1.35}
+.note h3{margin:0 0 4px;font-size:19px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em}
+.note p{margin:0;font-size:15px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 80%,transparent)}
+/* ——— depoimentos ————————————————————————————————————————— */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,26px)}
+.qcard{background:color-mix(in srgb,#fff 7%,transparent);border:1px solid color-mix(in srgb,#fff 18%,transparent);
+padding:clamp(18px,2vw,24px);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.7;
+color:color-mix(in srgb,#fff 72%,transparent)}
+.qcard .stars{display:flex;gap:5px;margin-bottom:var(--half)}
+.qcard .stars svg{width:14px;height:14px;color:color-mix(in srgb,var(--color-accent-2-400) 70%,transparent)}
+/* ——— faq ——————————————————————————————————————————————————— */
+.faq details{border-bottom:1px solid var(--color-divider)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:var(--leading);align-items:center;
+padding:calc(.8*var(--leading)) 0;font-family:var(--font-heading);font-weight:600;font-size:21px;letter-spacing:.03em;text-transform:uppercase}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:22px;height:22px;flex:none;background:var(--green);
+clip-path:polygon(45% 12%,55% 12%,55% 45%,88% 45%,88% 55%,55% 55%,55% 88%,45% 88%,45% 55%,12% 55%,12% 45%,45% 45%);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:hover{color:var(--color-accent-700)}
+.faq p{margin:0 0 var(--leading);font-size:15px;line-height:1.6;max-width:var(--measure);color:color-mix(in srgb,var(--color-text) 80%,transparent)}
+/* ——— localização ————————————————————————————————————————— */
+.loc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,60px);align-items:center}
+.gates{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin:var(--leading) 0}
+.gate{padding:var(--half) 16px;border:1px solid color-mix(in srgb,#fff 22%,transparent);border-left:3px solid var(--green-l);
+background:color-mix(in srgb,#fff 6%,transparent)}
+.gate b{display:block;font-family:var(--font-heading);font-weight:600;font-size:22px;letter-spacing:.05em}
+.gate span{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,#fff 65%,transparent)}
+.map{position:relative;border:1px solid color-mix(in srgb,#fff 22%,transparent);overflow:hidden;box-shadow:0 30px 60px -44px #000}
+.map iframe{display:block;width:100%;height:clamp(280px,38vw,420px);border:0;filter:grayscale(.3) contrast(1.05)}
+.map .pin{position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:8px;padding:8px 12px;
+background:color-mix(in srgb,var(--navy) 85%,transparent);color:#fff;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.map .pin svg{width:16px;height:16px;color:var(--green-l)}
+/* ——— fechamento / footer / whatsapp ——————————————————————— */
+.close{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);align-items:center}
+.close .shot img{aspect-ratio:5/4}
+.ps{font-size:15px;line-height:1.6;max-width:var(--measure);margin:0;color:color-mix(in srgb,var(--color-text) 76%,transparent)}
+footer{padding-block:var(--leading) calc(1.6*var(--leading));border-top:1px solid var(--color-divider);
+display:flex;flex-wrap:wrap;gap:var(--half) var(--leading);justify-content:space-between;align-items:center;
+font-size:12.5px;color:color-mix(in srgb,var(--color-text) 66%,transparent)}
+footer img{display:block;height:32px;width:auto;mix-blend-mode:multiply}
+.wa{position:fixed;right:clamp(14px,3vw,28px);bottom:clamp(14px,3vw,28px);z-index:70;display:inline-flex;align-items:center;gap:10px;
+padding:14px 20px;border-radius:999px;background:var(--green);color:#fff;text-decoration:none;
+font-family:var(--font-heading);font-weight:600;font-size:16px;letter-spacing:.05em;text-transform:uppercase;
+box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
+.wa svg{width:22px;height:22px}
+.wa:hover{background:var(--green-l);transform:translateY(-2px);color:#fff}
+.wa span{white-space:nowrap}
+@media (max-width:640px){.wa{padding:14px;border-radius:50%}.wa span{display:none}}
+/* ——— responsivo ————————————————————————————————————————————— */
+@media (max-width:1080px){.svc-grid{grid-template-columns:repeat(2,1fr)}.quotes{grid-template-columns:1fr}}
+@media (max-width:920px){.about,.loc,.close{grid-template-columns:1fr}.about .shot,.close .shot{order:-1}.notes{grid-template-columns:1fr}}
+@media (max-width:720px){
+ .svc-grid{grid-template-columns:1fr}.mini,.gates{grid-template-columns:1fr}
+ .extras{grid-template-columns:1fr}.extras>div:nth-child(even){border-left:0}
+ .ba{aspect-ratio:4/3}
+ .spec .p{display:none}
+ .spec[data-cat=hatch] .p-hatch,.spec[data-cat=sedan] .p-sedan,.spec[data-cat=suv] .p-suv,.spec[data-cat=pickup] .p-pickup{display:table-cell}
+ .shot .tagline{display:none}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a class="nav-brand" href="#top"><img src="assets/logo-lava-jato-arena.png" alt="Lava Jato Arena" /><span class="brand-tag">Arena das Dunas</span></a>
+  <span class="links">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#resultado">Resultado</a>
+    <a href="#precos">Preços</a>
+    <a href="#local">Local</a>
+  </span>
+  <a class="phone" data-wa href="#"><span>Fale agora</span><span data-phone>[INSERIR TELEFONE]</span></a>
+  <a class="cta cta-1" data-wa href="#"><i data-lucide="calendar-check"></i>Agendar lavagem</a>
+</nav>
+
+<header class="hero" id="top">
+  <i class="arc arc-1"></i><i class="arc arc-2"></i><i class="arc arc-3 green"></i>
+  <i class="arena-line"></i>
+  <div class="wrap on-dark" style="padding-block:clamp(24px,4vw,56px) 0">
+    <div class="hero-grid">
+      <div>
+        <span class="kicker">Estética automotiva · Arena das Dunas</span>
+        <h1><span class="l">Seu carro merece</span><span class="l">cuidado de <em>Arena.</em></span></h1>
+        <p class="sub">Lavagem, proteção e cuidado automotivo para deixar seu carro limpo, protegido e com aquele brilho que faz diferença.</p>
+        <div class="actions">
+          <a class="cta cta-1" data-wa href="#"><i data-lucide="calendar-check"></i>Agendar lavagem</a>
+          <a class="cta cta-2" href="#precos"><i data-lucide="list"></i>Ver serviços e preços</a>
+          <span class="micro">Atendimento rápido</span>
+        </div>
+        <div class="marks">
+          <div><i data-lucide="car-front"></i>Hatch · Sedan · SUV · Caminhonete</div>
+          <div><i data-lucide="shield-check"></i>Proteção que dura</div>
+          <div><i data-lucide="map-pin"></i>Portões E1 Sul e E1 Norte</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-shot">
+      <div class="plate">
+        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=2000&q=70" alt="Carro sendo lavado" loading="lazy" decoding="async" />
+        <span class="glow"></span>
+        <span class="badge"><i data-lucide="droplets"></i>Padrão Arena</span>
+        <span class="stripe"></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="band sec" id="sobre" style="padding-top:clamp(96px,11vw,168px)">
+  <i class="field"></i>
+  <div class="wrap">
+    <span class="bignum">01</span>
+    <div class="about">
+      <div class="rv">
+        <span class="kicker">01 — Sobre</span>
+        <h2 class="big">Todo carro merece mais do que uma <em style="font-style:normal;color:var(--green)">lavagem qualquer.</em></h2>
+        <p>No Lava Jato Arena, cada serviço é pensado pra cuidar do seu veículo de verdade — da lavagem do dia a dia até a proteção que preserva a pintura por mais tempo.</p>
+        <p>Localizado na Arena das Dunas, com acesso fácil pelos portões E1 Sul e E1 Norte, é o lugar certo pra quem quer sair com o carro limpo, protegido e brilhando.</p>
+        <div class="mini">
+          <div class="card-x"><span class="ico"><i data-lucide="users"></i></span><h3>Equipe que cuida</h3><p>Serviço feito com etapas definidas, do começo ao acabamento.</p></div>
+          <div class="card-x"><span class="ico"><i data-lucide="flask-conical"></i></span><h3>Produto certo</h3><p>Cada etapa com o produto adequado para pintura, vidro e plástico.</p></div>
+        </div>
+      </div>
+      <div class="shot rv">
+        <i class="dot-arc"></i>
+        <span class="tagline">Cuidado de Arena</span>
+        <div class="frame-img">
+          <img src="https://images.unsplash.com/photo-1704796141009-5ed5cc8ca5f3?auto=format&fit=crop&w=1200&q=70" alt="Acabamento do carro" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band dark sec" id="servicos">
+  <i class="field"></i>
+  <i class="arc" style="width:1100px;aspect-ratio:2.4/1;left:50%;translate:-50% 0;bottom:-30%"></i>
+  <div class="wrap">
+    <span class="bignum">02</span>
+    <div class="rv">
+      <span class="kicker">02 — Serviços</span>
+      <h2 class="title">Do rápido ao <em>completo</em></h2>
+      <p class="lede">Você escolhe o serviço certo pro seu carro e pro seu momento: uma lavagem express pro dia a dia, uma proteção pra manter o brilho por mais tempo, ou um cuidado técnico mais completo quando o carro precisa de atenção redobrada.</p>
+    </div>
+    <div class="svc-grid rv" style="margin-top:calc(1.6*var(--leading))">
+      <article class="svc">
+        <div class="ph"><span class="num">01</span>
+          <img src="https://images.unsplash.com/photo-1633014041037-f5446fb4ce99?auto=format&fit=crop&w=900&q=70" alt="Lavagem técnica" loading="lazy" decoding="async" />
+          <span class="ico"><i data-lucide="droplets"></i></span>
+        </div>
+        <div class="body"><h3>Lavagem Técnica</h3><p>O cuidado mais completo da casa: lavagem externa com etapas definidas, para o carro sair limpo de verdade.</p>
+          <div class="price"><b>R$ 60</b><span>a partir de</span></div></div>
+      </article>
+      <article class="svc">
+        <div class="ph"><span class="num">02</span>
+          <img src="https://images.unsplash.com/photo-1732357624591-f2137085659b?auto=format&fit=crop&w=900&q=70" alt="Proteção express" loading="lazy" decoding="async" />
+          <span class="ico"><i data-lucide="shield-check"></i></span>
+        </div>
+        <div class="body"><h3>Proteção Express</h3><p>Proteção aplicada sobre a pintura para manter o brilho e segurar a sujeira por mais tempo.</p>
+          <div class="price"><b>R$ 40</b><span>a partir de</span></div></div>
+      </article>
+      <article class="svc">
+        <div class="ph"><span class="num">03</span>
+          <img src="https://images.unsplash.com/photo-1608259243654-70c070e0f6ed?auto=format&fit=crop&w=900&q=70" alt="Interna express" loading="lazy" decoding="async" />
+          <span class="ico"><i data-lucide="wind"></i></span>
+        </div>
+        <div class="body"><h3>Interna Express</h3><p>Aspiração e limpeza do interior para tirar poeira, resíduo e o cheiro do uso diário.</p>
+          <div class="price"><b>R$ 40</b><span>a partir de</span></div></div>
+      </article>
+      <article class="svc">
+        <div class="ph"><span class="num">04</span>
+          <img src="https://images.unsplash.com/photo-1611239179213-d972da54091a?auto=format&fit=crop&w=900&q=70" alt="Brilho express" loading="lazy" decoding="async" />
+          <span class="ico"><i data-lucide="sparkles"></i></span>
+        </div>
+        <div class="body"><h3>Brilho Express</h3><p>O acabamento rápido que devolve o brilho — e a restauração de plástico quando o carro pede.</p>
+          <div class="price"><b>R$ 20</b><span>a partir de</span></div></div>
+      </article>
+    </div>
+    <div class="rv" style="display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:center;margin-top:calc(1.4*var(--leading))">
+      <a class="cta cta-3" href="#precos"><i data-lucide="arrow-right"></i>Ver todos os valores por veículo</a>
+      <span style="font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:color-mix(in srgb,#fff 62%,transparent)">Motor · Vidros · Couro · Faróis à parte</span>
+    </div>
+  </div>
+</section>
+
+<section class="band tint sec" id="resultado">
+  <div class="wrap">
+    <span class="bignum">03</span>
+    <div class="rv" style="max-width:34ch">
+      <span class="kicker">03 — Resultado</span>
+      <h2 class="title">Veja a diferença no <em>seu carro</em></h2>
+    </div>
+    <div class="ba-wrap rv">
+      <div class="ba" id="ba">
+        <div class="lay"><img src="https://images.unsplash.com/photo-1694678505383-676d78ea3b96?auto=format&fit=crop&w=1600&q=70" alt="Antes da lavagem" loading="lazy" decoding="async" /></div>
+        <div class="lay after"><img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1600&q=70" alt="Depois da lavagem" loading="lazy" decoding="async" /></div>
+        <span class="tag l">Antes</span><span class="tag r">Depois</span>
+        <span class="line"></span>
+        <input type="range" min="0" max="100" value="50" step="1" id="ba-range" aria-label="Arraste para comparar antes e depois" />
+      </div>
+      <div class="ba-legend" style="color:color-mix(in srgb,var(--color-text) 76%,transparent)">
+        <p>Da sujeira do dia a dia a um acabamento limpo e brilhando — arraste o divisor para comparar.</p>
+        <p>Cuidado técnico em etapas para recuperar o aspecto da pintura, não só molhar o carro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band sec" id="porque">
+  <div class="wrap">
+    <span class="bignum">04</span>
+    <div class="rv">
+      <span class="kicker">04 — Por que aqui</span>
+      <h2 class="title">Cuidado organizado por <em>nível de necessidade</em></h2>
+    </div>
+    <div class="svc-grid rv" style="grid-template-columns:repeat(3,1fr)">
+      <div class="card-x"><span class="ico"><i data-lucide="tags"></i></span><h3>Preço por categoria</h3><p>Você sabe exatamente o que vai pagar pro seu Hatch, Sedan, SUV ou Caminhonete — sem sustos na hora de fechar.</p></div>
+      <div class="card-x"><span class="ico"><i data-lucide="gauge"></i></span><h3>Do rápido ao completo</h3><p>Resolve tanto o dia corrido quanto a vontade de dar um cuidado extra no carro, no mesmo lugar.</p></div>
+      <div class="card-x"><span class="ico"><i data-lucide="shield"></i></span><h3>Proteção que dura</h3><p>Você sai daqui com o carro protegido, não só limpo por um dia.</p></div>
+      <div class="card-x"><span class="ico"><i data-lucide="route"></i></span><h3>Acesso fácil</h3><p>Direto na Arena das Dunas, pelos portões E1 Sul e E1 Norte — sem desvio de rota.</p></div>
+      <div class="card-x"><span class="ico"><i data-lucide="mouse-pointer-click"></i></span><h3>Escolha visual e rápida</h3><p>Veja o preço do seu carro sem precisar ler tabela nenhuma: selecione a categoria e pronto.</p></div>
+      <div class="card-x"><span class="ico"><i data-lucide="wrench"></i></span><h3>Serviços especiais</h3><p>Motor, vidros, bancada de couro e faróis, resolvidos à parte quando o carro pede mais.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band tint sec" id="precos">
+  <div class="wrap">
+    <span class="bignum">05</span>
+    <div class="rv">
+      <span class="kicker">05 — Preços</span>
+      <h2 class="title">Escolha seu veículo e veja <em>o valor exato</em></h2>
+    </div>
+    <div class="picker rv" role="radiogroup" aria-label="Categoria do veículo">
+      <label class="veh"><input type="radio" name="cat" value="hatch" checked /><i data-lucide="car"></i>Hatch</label>
+      <label class="veh"><input type="radio" name="cat" value="sedan" /><i data-lucide="car-front"></i>Sedan</label>
+      <label class="veh"><input type="radio" name="cat" value="suv" /><i data-lucide="caravan"></i>SUV</label>
+      <label class="veh"><input type="radio" name="cat" value="pickup" /><i data-lucide="truck"></i>Caminhonete</label>
+    </div>
+    <div class="plate-x rv">
+      <div class="plate-head"><strong>Serviços principais</strong><span>Valores por categoria de veículo</span></div>
+      <table class="spec" id="tabela" data-cat="hatch">
+        <colgroup><col /><col /><col /><col /><col /></colgroup>
+        <thead><tr><th scope="col">Serviço</th><th scope="col" class="p p-hatch">Hatch</th><th scope="col" class="p p-sedan">Sedan</th><th scope="col" class="p p-suv">SUV</th><th scope="col" class="p p-pickup">Caminhonete</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">Lavagem Técnica</td><td class="p p-hatch">R$ 60</td><td class="p p-sedan">R$ 70</td><td class="p p-suv">R$ 80</td><td class="p p-pickup">R$ 90</td></tr>
+          <tr><td class="nm">Proteção Express</td><td class="p p-hatch">R$ 40</td><td class="p p-sedan">R$ 40</td><td class="p p-suv">R$ 50</td><td class="p p-pickup">R$ 60</td></tr>
+          <tr><td class="nm">Lavagem Express</td><td class="p p-hatch">R$ 40</td><td class="p p-sedan">R$ 50</td><td class="p p-suv">R$ 60</td><td class="p p-pickup">R$ 70</td></tr>
+          <tr><td class="nm">Interna Express</td><td class="p p-hatch">R$ 40</td><td class="p p-sedan">R$ 50</td><td class="p p-suv">R$ 60</td><td class="p p-pickup">R$ 70</td></tr>
+          <tr><td class="nm">Brilho Express</td><td class="p p-hatch">R$ 20</td><td class="p p-sedan">R$ 20</td><td class="p p-suv">R$ 30</td><td class="p p-pickup">R$ 40</td></tr>
+          <tr><td class="nm">Restauração de Plástico Express</td><td class="p p-hatch">R$ 30</td><td class="p p-sedan">R$ 30</td><td class="p p-suv">R$ 40</td><td class="p p-pickup">R$ 40</td></tr>
+        </tbody>
+      </table>
+      <div class="extras-head">Serviços especiais</div>
+      <div class="extras">
+        <div><span class="name">Limpeza de Motor</span><span class="val">R$ 100</span></div>
+        <div><span class="name">Descontaminação de Vidros<br />Hatch/Sedan · SUV/Caminhonete</span><span class="val">R$ 120 · R$ 150</span></div>
+        <div><span class="name">Higienização de Bancadas de Couro<br />5 lugares · 7 lugares</span><span class="val">R$ 200 · R$ 250</span></div>
+        <div><span class="name">Restauração de Faróis</span><span class="val">R$ 200</span></div>
+      </div>
+      <p class="plate-note">Escolha a categoria do seu veículo para ver o valor de cada serviço. Serviços especiais são cobrados à parte.</p>
+    </div>
+    <div class="rv" style="margin-top:var(--leading)"><a class="cta cta-1" data-wa href="#"><i data-lucide="calendar-check"></i>Agendar meu serviço</a></div>
+  </div>
+</section>
+
+<section class="band dark sec">
+  <i class="field"></i>
+  <div class="wrap">
+    <span class="bignum">06</span>
+    <div class="rv">
+      <span class="kicker">06 — Depoimentos</span>
+      <h2 class="title">O que os clientes <em>dizem</em></h2>
+    </div>
+    <div class="quotes rv" style="margin-top:calc(1.4*var(--leading))">
+      <div class="qcard"><div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>[DEPOIMENTO 1 — foco em resultado visível: brilho, proteção. Substituir por depoimento real antes de publicar.]</div>
+      <div class="qcard"><div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>[DEPOIMENTO 2 — foco em praticidade/atendimento. Substituir por depoimento real antes de publicar.]</div>
+      <div class="qcard"><div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>[DEPOIMENTO 3 — foco em confiança/cuidado com o carro. Substituir por depoimento real antes de publicar.]</div>
+    </div>
+  </div>
+</section>
+
+<section class="band sec">
+  <div class="wrap">
+    <span class="bignum">07</span>
+    <div class="rv">
+      <span class="kicker">07 — Antes de agendar</span>
+      <h2 class="title">Cuidar do carro devia ser <em>simples</em></h2>
+    </div>
+    <div class="notes rv">
+      <div class="note"><span class="n">01</span><div><h3>“Achei que ia ser caro.”</h3><p>Os serviços são organizados por categoria de veículo — você escolhe exatamente o nível de cuidado que cabe no seu momento, do express ao completo.</p></div></div>
+      <div class="note"><span class="n">02</span><div><h3>“Não sei qual serviço meu carro precisa.”</h3><p>Por isso os serviços são separados por necessidade: lavagem rápida, proteção, cuidado interno ou completo. É só escolher o que combina com o seu carro hoje.</p></div></div>
+      <div class="note"><span class="n">03</span><div><h3>“Vou perder muito tempo lá.”</h3><p>Existem opções express pensadas justamente pra quem tem a rotina corrida.</p></div></div>
+      <div class="note"><span class="n">04</span><div><h3>“Será que cuidam bem do meu carro?”</h3><p>Cada serviço foi desenhado com etapas específicas — da lavagem técnica à proteção — pra cuidar do carro com atenção, não só “passar um pano”.</p></div></div>
+    </div>
+    <p class="lede rv" style="margin-top:var(--leading)">No Lava Jato Arena, cada serviço é feito com atenção do início ao acabamento. Se algo no seu carro precisar de mais cuidado, é só conversar com a equipe no local.</p>
+  </div>
+</section>
+
+<section class="band tint sec faq" id="faq">
+  <div class="wrap">
+    <span class="bignum">08</span>
+    <div class="rv">
+      <span class="kicker">08 — Dúvidas frequentes</span>
+      <h2 class="title">Perguntas que <em>sempre chegam</em></h2>
+    </div>
+    <div class="rv">
+      <details open><summary>Quanto tempo leva cada serviço?</summary><p>Varia de acordo com o tipo de lavagem escolhido — os serviços express são pensados pra ser mais rápidos.</p></details>
+      <details><summary>Serve pra qualquer tipo de carro?</summary><p>Sim. Os preços são organizados por categoria: Hatch, Sedan, SUV e Caminhonete.</p></details>
+      <details><summary>Como funciona o acesso até o Lava Jato Arena?</summary><p>O acesso é pelos portões E1 Sul e E1 Norte, na Arena das Dunas.</p></details>
+      <details><summary>Preciso agendar ou posso chegar direto?</summary><p>[CONFIRMAR COM O CLIENTE — informação não fornecida no briefing.]</p></details>
+      <details><summary>Quais formas de pagamento são aceitas?</summary><p>[INSERIR FORMAS DE PAGAMENTO — não informado.]</p></details>
+      <details><summary>Qual serviço escolher se eu nunca lavei o carro aqui antes?</summary><p>Se é sua primeira vez, a Lavagem Técnica cobre um cuidado mais completo — dá pra começar por ela e ajustar nas próximas visitas.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band dark sec" id="local">
+  <i class="arc" style="width:1200px;aspect-ratio:2.3/1;left:50%;translate:-50% 0;top:-24%"></i>
+  <div class="wrap on-dark">
+    <span class="bignum">09</span>
+    <div class="loc">
+      <div class="rv">
+        <span class="kicker">09 — Localização</span>
+        <h2 class="title" style="margin-bottom:var(--half)">Arena das <em>Dunas</em></h2>
+        <p class="lede">Acesso fácil, sem desvio de rota: entre pelos portões E1 Sul e E1 Norte.</p>
+        <div class="gates">
+          <div class="gate"><b>E1 Sul</b><span>Portão de acesso</span></div>
+          <div class="gate"><b>E1 Norte</b><span>Portão de acesso</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-4)">
+          <a class="cta cta-1" href="https://www.google.com/maps/dir/?api=1&destination=Arena+das+Dunas+Natal+RN" target="_blank" rel="noopener"><i data-lucide="navigation"></i>Traçar rota</a>
+          <a class="cta cta-2" data-wa href="#"><i data-lucide="message-circle"></i>Falar no WhatsApp</a>
+        </div>
+      </div>
+      <div class="map rv">
+        <iframe title="Mapa — Arena das Dunas" src="https://www.google.com/maps?q=Arena+das+Dunas,+Natal+-+RN&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <span class="pin"><i data-lucide="map-pin"></i>Lava Jato Arena · Arena das Dunas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band sec">
+  <div class="wrap">
+    <div class="close">
+      <div class="rv">
+        <span class="kicker">Agendar</span>
+        <h2 class="title">Seu carro merece sair daqui <em>brilhando.</em></h2>
+        <p class="lede">Escolha o serviço ideal para seu veículo e venha conhecer o Lava Jato Arena. Acesso fácil pelos portões E1 Sul e E1 Norte.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--leading)">
+          <a class="cta cta-1" data-wa href="#"><i data-lucide="message-circle"></i>Agendar pelo WhatsApp</a>
+          <a class="cta cta-2" href="https://www.google.com/maps/dir/?api=1&destination=Arena+das+Dunas+Natal+RN" target="_blank" rel="noopener"><i data-lucide="map-pin"></i>Como chegar</a>
+        </div>
+      </div>
+      <div class="shot rv">
+        <i class="dot-arc"></i>
+        <div class="frame-img">
+          <img src="https://images.unsplash.com/photo-1605164598708-25701594473e?auto=format&fit=crop&w=1200&q=70" alt="Box do lava jato" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </div>
+    <p class="ps rv" style="margin-top:calc(1.6*var(--leading))">PS: seu carro passa o dia todo com você — ele merece um cuidado à altura disso. No Lava Jato Arena, na Arena das Dunas, é só escolher o serviço certo pro seu veículo e agendar.</p>
+    <footer>
+      <img src="assets/logo-lava-jato-arena.png" alt="Lava Jato Arena" />
+      <span>Arena das Dunas · Portões E1 Sul e E1 Norte</span>
+      <span>Política de Privacidade (a criar) · LGPD</span>
+    </footer>
+  </div>
+</section>
+
+<a class="wa" data-wa href="#" aria-label="Falar no WhatsApp"><i data-lucide="message-circle"></i><span>Falar no WhatsApp</span></a>
+
+<script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+<script>
+/* — configuração — */
+const WHATSAPP_NUMBER = '558494561446'; // formato internacional, só dígitos
+const PHONE_DISPLAY = '(84) 9456-1446';
+const WHATSAPP_MESSAGE = 'Olá! Vim pelo site do Lava Jato Arena e gostaria de saber mais sobre os serviços.';
+(() => {
+  if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });
+
+  const href = WHATSAPP_NUMBER ? 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(WHATSAPP_MESSAGE) : null;
+  document.querySelectorAll('[data-wa]').forEach(el => {
+    if (href) { el.href = href; el.target = '_blank'; el.rel = 'noopener'; }
+    else { el.setAttribute('aria-disabled', 'true'); el.title = 'Definir WHATSAPP_NUMBER'; }
+  });
+  if (PHONE_DISPLAY) document.querySelectorAll('[data-phone]').forEach(el => { el.textContent = PHONE_DISPLAY; });
+
+  /* tabela de preços */
+  const table = document.getElementById('tabela');
+  document.querySelectorAll('input[name="cat"]').forEach(r => {
+    r.addEventListener('change', () => { if (r.checked) table.dataset.cat = r.value; });
+  });
+
+  /* comparador antes/depois */
+  const ba = document.getElementById('ba'), range = document.getElementById('ba-range');
+  const setPos = v => ba.style.setProperty('--pos', v + '%');
+  range.addEventListener('input', () => setPos(range.value));
+  const drag = e => {
+    const r = ba.getBoundingClientRect();
+    const v = Math.round((Math.min(Math.max(e.clientX - r.left, 0), r.width) / r.width) * 100);
+    range.value = v; setPos(v);
+  };
+  ba.addEventListener('pointerdown', e => {
+    if (e.target === range) return;
+    drag(e);
+    const move = ev => drag(ev);
+    const up = () => { ba.removeEventListener('pointermove', move); ba.removeEventListener('pointerup', up); };
+    ba.addEventListener('pointermove', move); ba.addEventListener('pointerup', up);
+  });
+  setPos(50);
+
+  /* header ao rolar */
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.toggleAttribute('data-stuck', window.scrollY > 40);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* revelação no scroll */
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.rv').forEach(el => el.classList.add('in'));
+  }
+
+  /* item ativo na navegação */
+  const links = [...document.querySelectorAll('.links a')];
+  const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if ('IntersectionObserver' in window && targets.length) {
+    const spy = new IntersectionObserver((es) => {
+      es.forEach(e => {
+        if (!e.isIntersecting) return;
+        links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    targets.forEach(t => spy.observe(t));
+  }
+})();
+</script>
+</body>
+</html>
