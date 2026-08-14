@@ -28,7 +28,7 @@ padding-inline:max(var(--edge),calc((100% - 1200px)/2 + var(--edge)));background
 backdrop-filter:blur(10px);border-bottom:1px solid var(--color-divider);transition:min-height .25s,box-shadow .25s,background .25s}
 .nav[data-stuck]{min-height:60px;box-shadow:0 8px 28px -20px var(--navy);background:color-mix(in srgb,#fff 86%,transparent)}
 .nav-brand{display:flex;align-items:center;gap:var(--space-4);text-decoration:none}
-.nav-brand img{display:block;height:46px;width:auto;mix-blend-mode:multiply;transition:height .25s}
+.nav-brand img{display:block;height:46px;width:auto;transition:height .25s}
 .nav[data-stuck] .nav-brand img{height:36px}
 .brand-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--green);white-space:nowrap;padding-left:var(--space-4);border-left:1px solid var(--color-divider)}
 .links{display:flex;gap:var(--space-6);margin-left:var(--space-6)}
@@ -224,7 +224,9 @@ font-feature-settings:"tnum" 1;color:color-mix(in srgb,var(--color-text) 55%,tra
 padding:clamp(18px,2vw,24px);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.7;
 color:color-mix(in srgb,#fff 72%,transparent)}
 .qcard .stars{display:flex;gap:5px;margin-bottom:var(--half)}
-.qcard .stars svg{width:14px;height:14px;color:color-mix(in srgb,var(--color-accent-2-400) 70%,transparent)}
+.qcard .stars svg{width:14px;height:14px;color:var(--color-accent-2-400)}
+.qcard .who{display:block;margin-top:var(--leading);font-family:var(--font-heading);font-weight:600;font-size:13px;
+letter-spacing:.06em;text-transform:uppercase;color:#fff}
 /* ——— faq ——————————————————————————————————————————————————— */
 .faq details{border-bottom:1px solid var(--color-divider)}
 .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:var(--leading);align-items:center;
@@ -254,7 +256,7 @@ background:color-mix(in srgb,var(--navy) 85%,transparent);color:#fff;font-size:1
 footer{padding-block:var(--leading) calc(1.6*var(--leading));border-top:1px solid var(--color-divider);
 display:flex;flex-wrap:wrap;gap:var(--half) var(--leading);justify-content:space-between;align-items:center;
 font-size:12.5px;color:color-mix(in srgb,var(--color-text) 66%,transparent)}
-footer img{display:block;height:32px;width:auto;mix-blend-mode:multiply}
+footer img{display:block;height:32px;width:auto}
 .wa{position:fixed;right:clamp(14px,3vw,28px);bottom:clamp(14px,3vw,28px);z-index:70;display:inline-flex;align-items:center;gap:10px;
 padding:14px 20px;border-radius:999px;background:var(--green);color:#fff;text-decoration:none;
 font-family:var(--font-heading);font-weight:600;font-size:16px;letter-spacing:.05em;text-transform:uppercase;
@@ -491,9 +493,9 @@ box-shadow:0 18px 34px -16px color-mix(in srgb,var(--green) 80%,#000)}
       <h2 class="title">O que os clientes <em>dizem</em></h2>
     </div>
     <div class="quotes rv" style="margin-top:calc(1.4*var(--leading))">
-      <div class="qcard"><div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>[DEPOIMENTO 1 — foco em resultado visível: brilho, proteção. Substituir por depoimento real antes de publicar.]</div>
-      <div class="qcard"><div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>[DEPOIMENTO 2 — foco em praticidade/atendimento. Substituir por depoimento real antes de publicar.]</div>
-      <div class="qcard"><div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>[DEPOIMENTO 3 — foco em confiança/cuidado com o carro. Substituir por depoimento real antes de publicar.]</div>
+      <div class="qcard"><div class="stars"><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i></div>Melhor lugar onde já lavei meu carro, muita qualidade, e a localização facilita o dia a dia.<span class="who">— Jerônimo</span></div>
+      <div class="qcard"><div class="stars"><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i></div>Recomendo para toda a comunidade — atendimento e agilidade essenciais, saí com o carro novo!<span class="who">— Lucas</span></div>
+      <div class="qcard"><div class="stars"><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i></div>Trabalho como motorista de aplicativo e meus clientes elogiaram a limpeza do meu carro. Obrigado à equipe Lava Jato Arena!<span class="who">— Allyson</span></div>
     </div>
   </div>
 </section>
